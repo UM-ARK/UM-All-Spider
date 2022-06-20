@@ -21,11 +21,9 @@
         通過己知iCalendar鏈接取得日曆數據  
   
 用法:  
-    `  
-    import ummodle_calendar  
-    calender = ummodle_calendar.Calendar([input MoodleSession])  
-    calender.get_calender()  
-    `  
+    `import ummodle_calendar`  
+    `calender = ummodle_calendar.Calendar([input MoodleSession])`  
+    `calender.get_calender()`  
   
 更改日志:  
     2022/6/20 - 封裝成class  
