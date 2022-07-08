@@ -3,7 +3,7 @@ import urllib.parse as pars
 import jicson
 import json
 import bs4
-#V0.2
+
 
 
 class Calendar:
@@ -62,16 +62,26 @@ class Calendar:
         return result
 
 
+    def get_calender_by_file(self,path,filename):
+        ##主程式
+        sesskey = self.get_sesskey(self.headers)
+        icalLink= self.get_icalLink(self.headers,sesskey)
+        data= self.get_ical(self.headers,icalLink)
+        icaljson=jicson.fromText(data)
+        #print(icaljson)
+
+        ###輸出結果到文件
+        file = open(path+filename+".json", "w")
+        file.write(json.dumps(icaljson))
+        file.close()
+        print("DONE : save the calender by json file")
+        return path+filename+".json"
+
     def get_calender(self):
         ##主程式
         sesskey = self.get_sesskey(self.headers)
         icalLink= self.get_icalLink(self.headers,sesskey)
         data= self.get_ical(self.headers,icalLink)
-        ical_json=jicson.fromText(data)
-        print(ical_json)
-
-        ###輸出結果到文件
-        file = open("ical_output.json", "w")
-        file.write(json.dumps(ical_json))
-        file.close()
-        print("DONE!!!")
+        icaljson=jicson.fromText(data)
+        #print(icaljson)
+        return {'icalLink':icalLink,'icaljson':icaljson}
