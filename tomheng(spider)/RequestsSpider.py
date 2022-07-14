@@ -5,11 +5,13 @@ import requests
 from lxml import html
 import json
 
-userName = "141414@umac.mo"
-passWord = "123456"
-authMethod = ['FormsAuthentication','other']
+with open('tomheng(spider)\data.json', 'r',encoding="utf-8") as f:
+    data = json.load(f)
 
-data = {
+userName = data['username']
+passWord = data['password']
+
+userData = {
     "UserName":userName,
     "Password":passWord,
     "AuthMethod": 'FormsAuthentication'
@@ -23,7 +25,7 @@ header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML,
 # cookie = cookieJar.get_dict()
 
 s = requests.session()
-s.post(url=url,headers=header,data=data)
+s.post(url=url,headers=header,data=userData)
 respon = s.get(url=url,headers=header)
 print(respon.status_code)
 

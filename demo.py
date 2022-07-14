@@ -13,8 +13,8 @@ import ummoodle_basicInfo
 
 basicInfo = ummoodle_basicInfo.basicInfo("279bvbk98jroccctau9u0sgvs4")
 
-#icon_url = basicInfo.get_icon_url() #return icon url:strint
-#print(icon_url)
+icon_url = basicInfo.get_icon_url() #return icon url:strint
+print(icon_url)
 
 file_path = basicInfo.download_icon("img/","icon2") #return icon path:strint
 print(file_path)

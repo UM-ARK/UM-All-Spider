@@ -4,10 +4,10 @@ import time
 
 import json
 
-with open('data.json', 'r',encoding="utf-8") as f:
+with open('tomheng(spider)\data.json', 'r',encoding="utf-8") as f:
     data = json.load(f)
 
-PATH = "./driver/chromedriver.exe"
+PATH = "tomheng(spider)/driver/chromedriver.exe"
 #user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15"
 option = webdriver.ChromeOptions()
 #option.add_experimental_option("excludeSwitches",['enable-automation','enable'])
